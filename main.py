@@ -1,12 +1,3 @@
-from typing import List
-from src.testers.tester import Tester
-from src.testers.math_tester import MathTester
-from src.testers.array_tester import ArrayTester
+from src.testers import run_tests
 
-testers: List[Tester] = [
-  MathTester(),
-  ArrayTester(),
-]
-
-for tester in testers:
-  tester.run()
+run_tests()
