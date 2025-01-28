@@ -1,9 +1,11 @@
 from typing import List
 from src.testers.tester import Tester
 from src.testers.math_tester import MathTester
+from src.testers.array_tester import ArrayTester
 
 testers: List[Tester] = [
-  MathTester(),  
+  MathTester(),
+  ArrayTester(),
 ]
 
 for tester in testers:

@@ -6,3 +6,6 @@ def sub(a: int, b: int) -> int:
 
 def div(a: int, b: int) -> float:
   return a / b
+
+def mult(a: int, b: int) -> int:
+  return a * b

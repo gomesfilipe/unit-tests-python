@@ -1,5 +1,5 @@
 from src.testers.tester import Tester, test, expect
-from src.utils.math_utils import summ, sub, div
+from src.utils.math_utils import summ, sub, div, mult
 
 class MathTester(Tester):
   @test('Sum of Integers')
@@ -36,3 +36,12 @@ class MathTester(Tester):
       .to_be_less_than(1.5)
 
     expect(lambda: div(1, 0)).to_throw(ZeroDivisionError)
+
+  @test('Multiplication of Integers')
+  def test_4(self) -> None:
+    expect(mult(10, 2)).to_be(20)
+    expect(mult(-10, 2)).to_be(-20)
+    expect(mult(-10, -2)).to_be(20)
+    expect(mult(10, -2)).to_be(-20)
+    expect(mult(0, 20)).to_be(0).to_be_falsy().nott().to_be_none()
+    expect(lambda: mult(1, 0)).nott().to_throw(ZeroDivisionError)

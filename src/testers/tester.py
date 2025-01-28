@@ -24,7 +24,7 @@ def expect(value: Any) -> Expect:
 class Tester(ABC):
   def __init__(self) -> None:
     self.__failed_tests: bool = False
-    self.__delay: float = 0.1
+    self.__delay: float = 0.05
 
   def _before_all(self) -> None:
     return
@@ -67,7 +67,8 @@ class Tester(ABC):
 
     finally:
       self._after_all()
-      Color.BLUE.print('The execution of tests has ended with failure.' if self.__failed_tests else 'All tests have been executed successfully')
-  
+      Color.BLUE.print('The execution of tests has ended with failure.' if self.__failed_tests else f'All tests of {type(self).__name__} have been executed successfully!')
+      Color.WHITE.print('\n')
+
   def __test_methods(self) -> List[Callable]:
     return [method for name, method in type(self).__dict__.items() if callable(method) and hasattr(method, 'is_test')]
